@@ -1,9 +1,11 @@
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 
 import Image from "next/image";
-import NavLinks from "./nav-links";
+
+import NavLinks from "./components/nav-links";
+import ProfileNav from "./components/profile-nav";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const drawerWidth: number = 300;
@@ -41,14 +43,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </Box>
         </Drawer>
       </Box>
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-        }}
-      >
+      <Box component="main" className="flex w-full p-4">
+        <ProfileNav />
         {children}
       </Box>
     </Box>
